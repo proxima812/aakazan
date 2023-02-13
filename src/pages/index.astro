@@ -1,0 +1,59 @@
+---
+import Layout, { container, text_h1, text_h3 } from "../layouts/Layout.astro";
+
+const item_grid = "flex flex-col";
+---
+
+<Layout>
+  <div class={container}>
+    <div class="mt-[40px]">
+      <h1 class={text_h1}><span class="aa">Анонимные Алкоголики?</span></h1>
+
+      <div class="mt-[25px] grid lg:grid-cols-2 gap-[25px] grid-cols-1">
+        <div class={item_grid}>
+          <h3 class={text_h3}>Анонимные Алкоголики</h3>
+          <p>
+            - это содружество, объединяющее мужчин и женщин, которые делятся
+            друг с другом своим опытом, силами и надеждами с целью помочь себе и
+            другим избавиться от алкоголизма.
+          </p>
+        </div>
+                <div class={item_grid}>
+          <h3 class={text_h3}>АА</h3>
+          <p>
+            - не связано ни с какой сектой, вероисповеданием, политическим
+            направлением, организацией или учреждением; не вступает в полемику
+            по каким бы то ни было вопросам, не поддерживает и не выступает
+            против чьих бы то ни было интересов.
+          </p>
+        </div>
+        <div class={item_grid}>
+          <h3 class={text_h3}>Единственное условие для членства в АА</h3>
+          <p>
+            - это желание бросить пить. <br> Члены АА не платят ни вступительных, ни
+            членских взносов. <br> Мы сами себя содержим благодаря нашим добровольным
+            пожертвованиям.
+          </p>
+        </div>
+        <div class={item_grid}>
+          <h3 class={text_h3}>Наша главная цель</h3>
+          <p>
+            - оставаться трезвыми и помочь другим алкоголикам обрести трезвость.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .aa {
+      font-family: "Inter", serif;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 42px;
+      line-height: 51px;
+      letter-spacing: -0.05em;
+      color: #08041e;
+    }
+  </style>
+</Layout>

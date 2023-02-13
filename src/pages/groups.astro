@@ -1,0 +1,77 @@
+---
+import { item_link } from "../components/Menu.astro";
+import Layout, { grid_cols_2, container } from "../layouts/Layout.astro";
+---
+
+<Layout title="Собрания" desc="Собрания">
+ <div class={container}>
+  <main class="mt-[20px]">
+   <div class="flex w-full mx-auto justify-center">
+    <div class="flex flex-col lg:flex-row p-[10px] rounded-[20px] bg-white">
+     <a href="#" class={`${item_link}` + " linkSet"} data-filter="day1" id="clickOne"
+      >Понедельник</a
+     >
+     <a href="#" class={`${item_link}` + " linkSet"} data-filter="day1">Вторник</a>
+     <a href="#" class={`${item_link}` + " linkSet"} data-filter="day2">Среда</a>
+     <a href="#" class={`${item_link}` + " linkSet"} data-filter="day3">Четверг</a>
+     <a href="#" class={`${item_link}` + " linkSet"} data-filter="day4">Пятница</a>
+     <a href="#" class={`${item_link}` + " linkSet"} data-filter="day5">Суббота</a>
+     <a href="#" class={`${item_link}` + " linkSet"} data-filter="day6">Воскресенье</a>
+    </div>
+   </div>
+
+   <div class={grid_cols_2}>
+    <h6 class="elem day1">Группа1</h6>
+    <h6 class="elem day2">Группа2</h6>
+    <h6 class="elem day3">Группа3</h6>
+    <h6 class="elem day4">Группа4</h6>
+    <h6 class="elem day5">Группа5</h6>
+    <h6 class="elem day6">Группа6</h6>
+    <h6 class="elem day7">Группа7</h6>
+   </div>
+  </main>
+ </div>
+</Layout>
+
+<script lang="js">
+ document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".linkSet").forEach(function (link) {
+   link.addEventListener("click", function () {
+    var value = this.getAttribute("data-filter");
+    var elem = document.querySelectorAll(".elem");
+    if (value === "") {
+     elem.forEach(function (element) {
+      element.style.display = "block";
+     });
+    } else {
+     elem.forEach(function (element) {
+      if (!element.classList.contains(value)) {
+       element.style.display = "none";
+      } else {
+       element.style.display = "block";
+      }
+     });
+    }
+   });
+  });
+  setTimeout(function () {
+   document.querySelector("#clickOne").click();
+  }, 10);
+ });
+ document.querySelectorAll(".linkSet").forEach(function (link) {
+  link.addEventListener("click", function (event) {
+   event.preventDefault();
+   document.querySelectorAll(".linkSet").forEach(function (element) {
+    element.classList.remove("active");
+   });
+   this.classList.add("active");
+  });
+ });
+</script>
+
+<style>
+  .active{
+    background-color: #222;
+    color: #fff;
+  }
+</style>
